@@ -1,35 +1,36 @@
 {
-  "name": "socket.mem.io-client",
-  "version": "0.0.0",
-  "description": "An static client that handle the conversion between a static server.",
-  "main": "index.js",
-  "scripts": {
-    "test": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iHDeveloper/socket.mem.io-client.git"
-  },
-  "keywords": [
-    "Socket",
-    "Client",
-    "NodeJS",
-    "Static-Client",
-    "Typescript"
-  ],
-  "author": "iHDeveloper",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/iHDeveloper/socket.mem.io-client/issues"
-  },
-  "homepage": "https://github.com/iHDeveloper/socket.mem.io-client#readme",
-  "dependencies": {
-    "crypto-js": "^3.1.9-1",
-    "socket.io-client": "^2.1.1"
-  },
-  "devDependencies": {
-    "@types/crypto-js": "^3.1.43",
-    "@types/node": "^10.12.7",
-    "@types/socket.io-client": "^1.4.32"
-  }
+    "name": "socket.mem.io-client",
+    "version": "0.0.0",
+    "description": "An static client that handle the conversion between a static server.",
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js",
+        "build": "tsc -p ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iHDeveloper/socket.mem.io-client.git"
+    },
+    "keywords": [
+        "Socket",
+        "Client",
+        "NodeJS",
+        "Static-Client",
+        "Typescript"
+    ],
+    "author": "iHDeveloper",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/iHDeveloper/socket.mem.io-client/issues"
+    },
+    "homepage": "https://github.com/iHDeveloper/socket.mem.io-client#readme",
+    "dependencies": {
+        "crypto-js": "^3.1.9-1",
+        "socket.io-client": "^2.1.1"
+    },
+    "devDependencies": {
+        "@types/crypto-js": "^3.1.43",
+        "@types/node": "^10.12.7",
+        "@types/socket.io-client": "^1.4.32"
+    }
 }
