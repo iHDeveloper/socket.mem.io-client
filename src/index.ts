@@ -5,6 +5,7 @@ export class Client {
     private options: ClientOptions;
     private client: SocketIOClient.Socket;
     private emitter: EventEmitter;
+    private eventsArray: string[];
 
     constructor(options?: ClientOptions) {
         if (options === undefined) {
@@ -15,6 +16,7 @@ export class Client {
         const uri: string = `${this.options.https ? "https" : "http"}://${this.options.host}:${this.options.port}`;
         this.client = SocketIOClient.default(uri);
         this.emitter = new EventEmitter();
+        this.eventsArray = [];
     }
 
     public emit(event: string, ...args: any[]): this {
@@ -24,12 +26,24 @@ export class Client {
 
     public on(event: string, listener: (...args: any[]) => void): this {
         this.emitter.on(event, listener);
-        this.client.on(event, (args: any) => {
-            this.emitter.emit(event, args);
-        });
+        const exist: boolean = this.has(this.eventsArray, event);
+        if (!exist) {
+            this.client.on(event, (args: any) => {
+                this.emitter.emit(event, args);
+            });
+            this.eventsArray.push(event);
+        }
         return this;
     }
 
+    private has(array: string[], toFind: string) {
+        for (const i of array) {
+            if (i === toFind) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 export class ClientOptions {
