@@ -22,5 +22,13 @@
   "bugs": {
     "url": "https://github.com/iHDeveloper/socket.mem.io-client/issues"
   },
-  "homepage": "https://github.com/iHDeveloper/socket.mem.io-client#readme"
+  "homepage": "https://github.com/iHDeveloper/socket.mem.io-client#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "socket.io-client": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
+    "@types/socket.io-client": "^1.4.32"
+  }
 }
