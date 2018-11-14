@@ -14,6 +14,20 @@ export class Client {
         }
         const uri: string = `${this.options.https ? "https" : "http"}://${this.options.host}:${this.options.port}`;
         this.client = SocketIOClient.default(uri);
+        this.emitter = new EventEmitter();
+    }
+
+    public emit(event: string, ...args: any[]): this {
+        this.client.emit(event, args);
+        return this;
+    }
+
+    public on(event: string, listener: (...args: any[]) => void): this {
+        this.emitter.on(event, listener);
+        this.client.on(event, (args: any) => {
+            this.emitter.emit(event, args);
+        });
+        return this;
     }
 
 }
