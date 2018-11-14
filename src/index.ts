@@ -1,8 +1,10 @@
+import { EventEmitter } from "events";
 import * as SocketIOClient from "socket.io-client";
 
 export class Client {
     private options: ClientOptions;
     private client: SocketIOClient.Socket;
+    private emitter: EventEmitter;
 
     constructor(options?: ClientOptions) {
         if (options === undefined) {
