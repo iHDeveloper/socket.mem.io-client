@@ -1,13 +1,15 @@
 import { EventEmitter } from "events";
 import * as SocketIOClient from "socket.io-client";
+import { Until } from "./until";
 
-export class Client {
+export class Client extends Until {
     private options: ClientOptions;
     private client: SocketIOClient.Socket;
     private emitter: EventEmitter;
     private eventsArray: string[];
 
     constructor(options?: ClientOptions) {
+        super();
         if (options === undefined) {
             this.options = new ClientOptions();
         } else {
@@ -34,15 +36,6 @@ export class Client {
             this.eventsArray.push(event);
         }
         return this;
-    }
-
-    private has(array: string[], toFind: string) {
-        for (const i of array) {
-            if (i === toFind) {
-                return true;
-            }
-        }
-        return false;
     }
 }
 
